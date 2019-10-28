@@ -1,0 +1,63 @@
+.DU-area {
+    display: inline-block;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}
+
+.DU-container {
+    position: relative;
+    margin: 10px auto;
+    height: 150px;
+    width: 150px;
+    border: 1px solid;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.DU-block-container {
+    position: absolute;
+    top: 220px;
+    left: -50%
+
+}
+
+.DU-block1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 0, 0.3);
+    animation: rotation 5s infinite linear;
+    z-index: 1;
+}
+.DU-block2 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    background-color: rgba(255, 0, 255, 0.3);
+    animation: rotation 5s infinite linear;
+    animation-delay: 1s;
+    z-index: 2;
+}
+.DU-block3 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 100px;
+    background-color: rgba(0, 255, 255, 0.3);
+    animation: rotation 5s infinite linear;
+    animation-delay: 3s;
+    z-index: 3;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
