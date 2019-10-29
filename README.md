@@ -70,7 +70,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### Todos
 
 - [x] 拖拽上传
-- [ ] 分页
+- [x] 分页
 - [ ] 虚拟长列表
 - [ ] 倒计时提示
 - [ ] datepick

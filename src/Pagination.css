@@ -1,0 +1,28 @@
+.Pag-container {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+.Pag-page {
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.Pag-page:hover {
+    color: blue;
+}
+
+.Pag-select {
+    display: inline-block;
+    color: blue;
+}
+
+.Pag-omitted {
+    border: none;
+    font-size: 30px;
+}
