@@ -10,8 +10,8 @@ function App() {
       <label>拖拽上传</label>
       <DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>  
       <label>分页</label>
-      <Pagination total={1000} pageSize={20} defaultCurrent={1}/>
-      <Pagination total={100} pageSize={20} defaultCurrent={3}/>
+      <Pagination total={1000} pageSize={20} defaultCurrent={1} onChange={page => console.log(page)}/>
+      <Pagination total={100} pageSize={20} defaultCurrent={3} onChange={page => console.log(page)} />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import './Pagination.css'
  * total 总条目数
  * pageSize 每页展示条目数
  * defaultCurrent 默认选中页码
+ * onChange(page) 事件，页面被点击时触发事件将新的页码传给处理机
  */
 /**
  * 思路：根据页数生成一个表，中间只展示五个，被选中的展示在正中间，首页和尾页一定展示
@@ -54,6 +55,10 @@ function Pagination(props) {
         }
     }
 
+    useEffect(() => {
+        props.onChange(currPage)
+    })
+    
     function setCurrPage(change) {
         if(change === 'left') {
             const move = currPage - 5
@@ -65,6 +70,7 @@ function Pagination(props) {
             setPage(change)
         }
     }
+
     return (
         <ul className="Pag-container">
             {list}
