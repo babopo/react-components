@@ -15,6 +15,9 @@
     overflow: hidden;
 }
 
+.DU-container:hover {
+    border-color: red;
+}
 
 .DU-block-container {
     position: absolute;

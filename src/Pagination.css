@@ -1,5 +1,6 @@
 .Pag-container {
     list-style-type: none;
+    padding: 0;
     cursor: pointer;
 }
 
@@ -14,12 +15,12 @@
 }
 
 .Pag-page:hover {
-    color: blue;
+    color: red;
 }
 
 .Pag-select {
     display: inline-block;
-    color: blue;
+    color: red;
 }
 
 .Pag-omitted {
