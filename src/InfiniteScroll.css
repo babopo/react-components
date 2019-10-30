@@ -1,0 +1,23 @@
+.IS-container {
+    width: 400px;
+    height: 200px;
+    overflow-y: scroll;
+    margin: 10px auto;
+    padding: 0;
+    border: 1px solid;
+    list-style-type: none;
+    position: relative;
+}
+
+.IS-item {
+    position: absolute;
+    width: calc(100% - 1px);
+    height: 24px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.IS-item:last-child {
+    border: none;
+    border-right: 1px solid;
+}
