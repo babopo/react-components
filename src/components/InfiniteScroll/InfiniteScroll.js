@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 import './InfiniteScroll.css'
 
@@ -14,15 +14,23 @@ function InfiniteScroll(props) {
     const [end , setEnd] = useState(200)
     // 保留最后一个，防止滚轮向上滚时滚动条变长
     const [bottom , setBottom] = useState(200)
+    // 用state储存data，因为data用完后需要生成新的
+    const [data, setData] = useState(props.data)
 
     function wheelScroll() {
         setStart(boxRef.current.scrollTop)
         setEnd(boxRef.current.scrollTop + boxRef.current.clientHeight)
         setBottom(boxRef.current.scrollHeight)
     }
+
+    useEffect(() => {
+        if(bottom >= (data.length - 1) * 25) {
+            setData([...data, ...Object.keys(Array(30).fill(0)).map(it => +it + data.length)])
+        }
+    }, [bottom, data])
     return (
         <ul className="IS-container" ref={boxRef} onScroll={wheelScroll}>
-            {props.data.map(it => {
+            {data.map(it => {
                 // 当前元素与内部page顶端的距离
                 const top = it * 25
                 if((top > start - 30 && top < end + 30) || ((bottom - top) <= 25 && (bottom - top) >= 0)) {

@@ -1,0 +1,28 @@
+.DP-container {
+    position: relative;
+    width: 300px;
+    margin: auto;
+}
+
+.DP-input {
+    width: 100%;
+}
+
+.DP-selector-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.DP-selector-item {
+    border: 1px solid;
+    flex-basis: 50px;
+}
+
+.DP-selector-body {
+    flex-basis: 150px;
+}

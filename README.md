@@ -72,6 +72,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [x] 拖拽上传
 - [x] 分页
 - [ ] 树形控件
-- [x] 虚拟长列表
+- [x] 无限滚动虚拟列表
 - [ ] 日期选择
 - [ ] 拖拽菜单

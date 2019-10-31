@@ -14,6 +14,10 @@ import Pagination from './components/Pagination/Pagination'
 import Tree, {TreeNode} from './components/Tree/Tree'
 // 虚拟长列表
 import InfiniteScroll from './components/InfiniteScroll/InfiniteScroll'
+// 日期选择器
+import DatePicker from './components/DatePicker/DatePicker'
+// 开关
+import Switch from './components/Switch/Switch'
 
 // 树形控件数据
 const treeData = [
@@ -75,7 +79,7 @@ function TreeComponent() {
   ) 
 }
 
-const InfiniteList = [...Object.keys(Array(1000).fill(0))]
+const InfiniteList = [...Object.keys(Array(30).fill(0))]
 
 
 function App() {
@@ -87,20 +91,21 @@ function App() {
   switch(curr) {
     case 1: 
       showing = <div>
-                  <label className="App-title">拖拽上传</label>
+                  <h1 className="App-title">拖拽上传</h1>
                   <DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>
-                  <label>将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击重置</label>
+                  <label>将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击圆圈重置</label>
                   <Highlight language="jsx" style={prism}>
                     {'<DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
                     {'// size传入区域大小 action传入上传地址'}
                   </Highlight>
+                  {/* <DatePicker /> */}
                 </div>
       break
     case 2:
       showing = <div>
-                  <label className="App-title">分页</label>
+                  <h1 className="App-title">分页</h1>
                   <Pagination total={1000} pageSize={20} defaultCurrent={1} onChange={page => console.log(page)}/>
                   <Highlight language="jsx" style={prism}>
                     {'<Pagination total={1000} pageSize={20} defaultCurrent={1} onChange={page => console.log(page)}/>'}
@@ -114,32 +119,40 @@ function App() {
                   </Highlight>
                 </div>
       break
-      case 3:
-        showing = <div>
-                    <label className="App-title">树形控件</label>
-                    <TreeComponent />
-                  </div>
+    case 3:
+      showing = <div>
+                  <h1 className="App-title">树形控件</h1>
+                  <TreeComponent />
+                </div>
       break
-      case 4:
-        showing = <div>
-                    <label className="App-title">无限滚动列表</label>
-                    <InfiniteScroll data={InfiniteList}/>
-                    <Highlight language="jsx" style={prism}>
-                      {'<InfiniteScroll data={InfiniteList}/>'}
-                    </Highlight>
-                    <Highlight language="javascript" style={prism}>
-                      {'// const InfiniteList = [...Object.keys(Array(1000).fill(0))]'}
-                    </Highlight>
-                  </div>
+    case 4:
+      showing = <div>
+                  <h1 className="App-title">无限滚动虚拟化列表</h1>
+                  <InfiniteScroll data={InfiniteList}/>
+                  <Highlight language="jsx" style={prism}>
+                    {'<InfiniteScroll data={InfiniteList}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// const InfiniteList = [...Object.keys(Array(30).fill(0))]'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// 初始data长度为30，当滚动到底部时自动加载新的数据，可无限滚动'}
+                  </Highlight>
+                </div>
       break
-      default:    
-    }
+    case 5:
+      showing = <div>
+                  <Switch defaultChecked onChange={console.log}/>
+                </div>
+      break
+    default:    
+  }
 
     return (
       <div className="App">
         {showing}
         <div className="App-bottom"></div>
-        <Pagination total={4} pageSize={1} defaultCurrent={1} onChange={switchPage} />
+        <Pagination total={5} pageSize={1} defaultCurrent={5} onChange={switchPage} />
       </div>
   );
 }
