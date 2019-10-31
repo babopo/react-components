@@ -73,6 +73,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [x] 分页
 - [ ] 树形控件
 - [x] 虚拟长列表
-- [ ] datepick
+- [ ] 日期选择
 - [ ] 拖拽菜单
-

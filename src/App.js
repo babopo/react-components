@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './App.css';
 // 高亮
-import Highlight from 'react-highlight'
-import './hlt-github.css'
+// import Highlight from 'react-highlight'
+// import './hlt-github.css'
+import { Prism as Highlight } from 'react-syntax-highlighter'
+import prism from  './highlight/prism'
 
 // 拖拽上传
-import DragUpload from './DragUpload'
+import DragUpload from './components/DragUpload/DragUpload'
 // 分页
-import Pagination from './Pagination'
+import Pagination from './components/Pagination/Pagination'
 // 树形控件
-import Tree, {TreeNode} from './Tree'
+import Tree, {TreeNode} from './components/Tree/Tree'
 // 虚拟长列表
-import InfiniteScroll from './InfiniteScroll'
+import InfiniteScroll from './components/InfiniteScroll/InfiniteScroll'
 
 // 树形控件数据
 const treeData = [
@@ -88,10 +90,10 @@ function App() {
                   <label className="App-title">拖拽上传</label>
                   <DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>
                   <label>将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击重置</label>
-                  <Highlight className="javascript">
+                  <Highlight language="jsx" style={prism}>
                     {'<DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
                   </Highlight>
-                  <Highlight className="javascript">
+                  <Highlight language="javascript" style={prism}>
                     {'// size传入区域大小 action传入上传地址'}
                   </Highlight>
                 </div>
@@ -100,14 +102,14 @@ function App() {
       showing = <div>
                   <label className="App-title">分页</label>
                   <Pagination total={1000} pageSize={20} defaultCurrent={1} onChange={page => console.log(page)}/>
-                  <Highlight className="javascript">
+                  <Highlight language="jsx" style={prism}>
                     {'<Pagination total={1000} pageSize={20} defaultCurrent={1} onChange={page => console.log(page)}/>'}
                   </Highlight>
                   <Pagination total={100} pageSize={20} defaultCurrent={3} onChange={page => console.log(page)} />
-                  <Highlight className="javascript">
+                  <Highlight language="jsx" style={prism}>
                     {'<Pagination total={100} pageSize={20} defaultCurrent={3} onChange={page => console.log(page)} />'}
                   </Highlight>
-                  <Highlight className="javascript">
+                  <Highlight language="javascript" style={prism}>
                     {'// total传入总条目数 pageSize传入单页条目数 defaultCurrent传入初始页码 onChange传入切换页码处理机 参数为当前点击的页码'}
                   </Highlight>
                 </div>
@@ -122,10 +124,10 @@ function App() {
         showing = <div>
                     <label className="App-title">无限滚动列表</label>
                     <InfiniteScroll data={InfiniteList}/>
-                    <Highlight className="javascript">
+                    <Highlight language="jsx" style={prism}>
                       {'<InfiniteScroll data={InfiniteList}/>'}
                     </Highlight>
-                    <Highlight className="javascript">
+                    <Highlight language="javascript" style={prism}>
                       {'// const InfiniteList = [...Object.keys(Array(1000).fill(0))]'}
                     </Highlight>
                   </div>
