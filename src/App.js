@@ -5,6 +5,8 @@ import './App.css';
 // import './hlt-github.css'
 import { Prism as Highlight } from 'react-syntax-highlighter'
 import prism from  './highlight/prism'
+// 引入字体图标
+import './assets/font-icon/css/font-awesome.min.css'
 
 // 拖拽上传
 import DragUpload from './components/DragUpload/DragUpload'
@@ -22,6 +24,8 @@ import Switch from './components/Switch/Switch'
 import Slider from './components/Slider/Slider'
 // 评分
 import Rate from './components/Rate/Rate'
+// 数字输入框
+import InputNumber from './components/InputNumber/InputNumber'
 
 // 树形控件数据
 const treeData = [
@@ -172,10 +176,10 @@ function App() {
                   </Highlight>
                 </div>
       break
-      case 7:
+    case 7:
       showing = <div>
                   <h1 className="App-title">评分</h1>
-                  <Rate count={5} defaultValue={2.4} onValue={val => console.log(val)}/>
+                  <Rate count={5} defaultValue={2.6} onValue={val => console.log(val)}/>
                   <div className="App-placholder"></div>
                   <Highlight language="jsx" style={prism}>
                     {'<Rate count={5} defaultValue={2.5} onValue={val => console.log(val)}/>'}
@@ -185,15 +189,29 @@ function App() {
                   </Highlight>
                 </div>
       break
+    case 8:
+      showing = <div>
+                  <h1 className="App-title">数字输入框</h1>
+                  <InputNumber min={1} max={15} defaultValue={6} onChange={num => console.log(num)} />
+                  {/* <div className="App-placholder"></div> */}
+                  <Highlight language="jsx" style={prism}>
+                    {'<InputNumber min={1} max={15} defaultValue={6} onChange={num => console.log(num)} />'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// min最小值 max最大值 defaultValue默认值 onChage获取最新输入'}
+                  </Highlight>
+                </div>
+      break
     default:    
   }
 
-    return (
-      <div className="App">
-        {showing}
-        <div className="App-bottom"></div>
-        <Pagination total={7} pageSize={1} defaultCurrent={7} onChange={switchPage} />
-      </div>
+  return (
+    <div className="App">
+      {showing}
+      <div className="App-bottom"></div>
+      <Pagination total={12} pageSize={1} defaultCurrent={8} onChange={switchPage} />
+      <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
+    </div>
   );
 }
 

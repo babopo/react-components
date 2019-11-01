@@ -37,3 +37,12 @@
   width: 10px;
   height: 40px;
 }
+
+.App-github {
+  display: block;
+  width: 30px;
+  height: 10px;
+  margin: auto;
+  font-size: 30px;
+  color: black;
+}

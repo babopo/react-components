@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import './Rate.css'
-// 引入字体图标
-import '../../assets/font-icon/css/font-awesome.min.css'
 
 
 /**

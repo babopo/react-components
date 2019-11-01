@@ -78,3 +78,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [x] 开关
 - [x] 滑动输入条
 - [x] 评分
+- [x] 数字输入框
