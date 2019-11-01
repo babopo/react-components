@@ -20,6 +20,8 @@ import DatePicker from './components/DatePicker/DatePicker'
 import Switch from './components/Switch/Switch'
 // 滑动输入
 import Slider from './components/Slider/Slider'
+// 评分
+import Rate from './components/Rate/Rate'
 
 // 树形控件数据
 const treeData = [
@@ -170,6 +172,19 @@ function App() {
                   </Highlight>
                 </div>
       break
+      case 7:
+      showing = <div>
+                  <h1 className="App-title">评分</h1>
+                  <Rate count={5} defaultValue={2.4} onValue={val => console.log(val)}/>
+                  <div className="App-placholder"></div>
+                  <Highlight language="jsx" style={prism}>
+                    {'<Rate count={5} defaultValue={2.5} onValue={val => console.log(val)}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// count传入最大评分数(整数)，1分对应1颗星 defaultValue传入初始值 onValue绑定处理机获取新值 精确到小数点后1位'}
+                  </Highlight>
+                </div>
+      break
     default:    
   }
 
@@ -177,7 +192,7 @@ function App() {
       <div className="App">
         {showing}
         <div className="App-bottom"></div>
-        <Pagination total={6} pageSize={1} defaultCurrent={6} onChange={switchPage} />
+        <Pagination total={7} pageSize={1} defaultCurrent={7} onChange={switchPage} />
       </div>
   );
 }
