@@ -16,8 +16,8 @@ function Switch(props) {
         setChecked(!checked)
     }
     return (
-        <div onClick={toggle} className={(checked ? 'S-checked' : 'S-uncheck') + ' S-box'}>
-            <div className="S-dot"/>
+        <div onClick={toggle} className={(checked ? 'S-on' : 'S-off') + ' S-box'}>
+            <div className={(checked ? 'S-dot-on' : 'S-dot-off') + ' S-dot'}/>
         </div>
     )
 }

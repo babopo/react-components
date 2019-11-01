@@ -1,13 +1,88 @@
 .S-box {
     width: 100px;
     height: 50px;
-    margin: auto;
-    border: 1px solid;
+    margin: 30px auto;
     border-radius: 50px;
-    position: relative;    
+    position: relative;
+    cursor: pointer;
 }
 
+.S-on {
+    background-color: #1890ff;
+    animation: onShadow .5s 1;
+}
+
+.S-off {
+    background-color: #bfbfbf;
+    animation: offShadow .5s 1;
+}
+
+@keyframes onShadow {
+    from {
+        box-shadow: 0 0 0 #1890ff;
+    }
+    50% {
+        box-shadow: 0 0 10px #1890ff;
+    }
+    to {
+        box-shadow: 0 0 0 #1890ff;
+    }
+}
+
+@keyframes offShadow {
+    from {
+        box-shadow: 0 0 0 #bfbfbf;
+    }
+    50% {
+        box-shadow: 0 0 10px #bfbfbf;
+    }
+    to {
+        box-shadow: 0 0 0 #bfbfbf;
+    }
+}
 
 .S-dot {
-    
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+    background-color: #fff;
+    top: 2px;
+    transition: .3s;
+}
+
+.S-dot-on {
+    left: 2px;
+    box-shadow: 2px 2px 15px grey;
+    animation: switchDot1 .3s 1;
+}
+
+.S-dot-off {
+    left: 52px;
+    box-shadow: -2px 2px 15px grey;
+    animation: switchDot2 .3s 1;
+}
+
+/* 即使是同样动画帧也要起不同的名字才能在切换时执行 */
+@keyframes switchDot1 {
+    from {
+        width: 46px;
+    }
+    50% {
+        width: 55px;
+    }
+    to {
+        width: 46px;
+    }
+}
+@keyframes switchDot2 {
+    from {
+        width: 46px;
+    }
+    50% {
+        width: 55px;
+    }
+    to {
+        width: 46px;
+    }
 }

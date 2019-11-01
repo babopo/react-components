@@ -18,6 +18,8 @@ import InfiniteScroll from './components/InfiniteScroll/InfiniteScroll'
 import DatePicker from './components/DatePicker/DatePicker'
 // 开关
 import Switch from './components/Switch/Switch'
+// 滑动输入
+import Slider from './components/Slider/Slider'
 
 // 树形控件数据
 const treeData = [
@@ -142,7 +144,30 @@ function App() {
       break
     case 5:
       showing = <div>
-                  <Switch defaultChecked onChange={console.log}/>
+                  <h1 className="App-title">开关</h1>
+                  <Switch defaultChecked onChange={status => console.log(status)}/>
+                  <Highlight language="jsx" style={prism}>
+                    {'<Switch defaultChecked onChange={status => console.log(status)}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// defaultChecked传入初始时的状态 onChange绑定处理机传入参数为当前开关状态'}
+                  </Highlight>
+                </div>
+      break
+    case 6:
+      showing = <div>
+                  <h1 className="App-title">滑动输入条</h1>
+                  <Slider maxValue={100} defaultValue={35} onValue={val => console.log(val)}/>
+                  <div className="App-placholder"></div>
+                  <Highlight language="jsx" style={prism}>
+                    {'<Slider maxValue={100} defaultValue={35} onValue={val => console.log(val)}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// maxValue传入最大值 defaultValue传入初始值 onValue绑定处理机获取滑块移动时的新值'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// 滑动滑块，点击输入条任意位置，输入框输入都能改变输入条的值，且处理了边界情况'}
+                  </Highlight>
                 </div>
       break
     default:    
@@ -152,7 +177,7 @@ function App() {
       <div className="App">
         {showing}
         <div className="App-bottom"></div>
-        <Pagination total={5} pageSize={1} defaultCurrent={5} onChange={switchPage} />
+        <Pagination total={6} pageSize={1} defaultCurrent={6} onChange={switchPage} />
       </div>
   );
 }
