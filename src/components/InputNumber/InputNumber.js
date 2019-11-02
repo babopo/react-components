@@ -21,12 +21,23 @@ function InputNumber(props) {
         if(val < props.max) {
             setVal(val + 1)
             props.onChange(val + 1)
+        } else {
+            // 不用考虑设置回去，因为上下按钮的点击处理机已经去掉这项了
+            setUp({
+                ...up,
+                cursor: 'not-allowed'
+            })
         }
     }
     function min() {
         if(val > props.min) {
             setVal(val - 1)
             props.onChange(val - 1)
+        } else {
+            setDown({
+                ...down,
+                cursor: 'not-allowed'
+            })
         }
     }
     function store() {
