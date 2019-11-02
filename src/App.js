@@ -28,6 +28,8 @@ import Rate from './components/Rate/Rate'
 import InputNumber from './components/InputNumber/InputNumber'
 // 折叠面板
 import Collapse, {Panel} from './components/Collapse/Collapse'
+// 多选框
+import CheckBox from './components/CheckBox/CheckBox'
 
 // 树形控件数据
 const treeData = [
@@ -225,6 +227,18 @@ function App() {
                   </Highlight>
                 </div>
       break
+    case 10:
+      showing = <div>
+                  <h1 className="App-title">多选框</h1>
+                  <CheckBox group={['Apple', 'Peach', 'Orange', 'Milk']} defaultChecked={['Apple', 'Orange']} onChange={checked => console.log(checked)}/>
+                  <Highlight language="jsx" style={prism}>
+                    {"<CheckBox group={['Apple', 'Peach', 'Orange', 'Milk']} defaultChecked={['Apple', 'Orange']} onChange={checked => console.log(checked)}/>"}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// group所有选项名称的数组 defaultChecked默认选中的项 onChage获取最新的被选中项组成的数组'}
+                  </Highlight>
+                </div>
+      break
     default:    
   }
 
@@ -232,7 +246,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={9} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={10} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
     </div>
   );

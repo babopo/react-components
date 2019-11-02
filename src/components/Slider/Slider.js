@@ -62,12 +62,12 @@ function Slider(props) {
             document.removeEventListener('mousemove', move)
             document.removeEventListener('mouseup', endMove)
         }
-    }, [dragging, originX])
+    }, [dragging, originX, props.maxValue])
 
     useEffect(() => {
         // 值变动时将值传给组件外
         props.onValue(val | 0)
-    }, [val])
+    }, [props, val])
 
     function dragBlock(e) {
         setX(e.clientX)
