@@ -26,6 +26,8 @@ import Slider from './components/Slider/Slider'
 import Rate from './components/Rate/Rate'
 // 数字输入框
 import InputNumber from './components/InputNumber/InputNumber'
+// 折叠面板
+import Collapse, {Panel} from './components/Collapse/Collapse'
 
 // 树形控件数据
 const treeData = [
@@ -193,12 +195,33 @@ function App() {
       showing = <div>
                   <h1 className="App-title">数字输入框</h1>
                   <InputNumber min={1} max={15} defaultValue={6} onChange={num => console.log(num)} />
-                  {/* <div className="App-placholder"></div> */}
                   <Highlight language="jsx" style={prism}>
                     {'<InputNumber min={1} max={15} defaultValue={6} onChange={num => console.log(num)} />'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
                     {'// min最小值 max最大值 defaultValue默认值 onChage获取最新输入'}
+                  </Highlight>
+                </div>
+      break
+    case 9:
+      showing = <div>
+                  <h1 className="App-title">手风琴折叠面板</h1>
+                  <Collapse defaultPanel="2" onChange={key => console.log(key)}>
+                    <Panel header="title 1" key="1">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro tempore accusamus iure quo, beatae consectetur recusandae rem aliquam eaque dignissimos obcaecati fuga! Illo, nihil vitae nisi qui. Quis est, corporis.</p>
+                    </Panel>
+                    <Panel header="title 2" key="2">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique vel repellendus, quo, molestias necessitatibus, rerum eligendi quasi possimus voluptas, facere ut perferendis. Veniam blanditiis pariatur dicta sequi! Vel, eveniet laudantium.</p>
+                    </Panel>
+                    <Panel header="title 3" key="3">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure perferendis praesentium mollitia, dicta doloribus incidunt, recusandae. Impedit excepturi ullam, iure obcaecati facere cum officia similique, quo eaque delectus vero ex.</p>
+                    </Panel>
+                  </Collapse>
+                  <Highlight className="App-snippts" language="jsx" customStyle={{textAlign: "start", display: 'inline-block', paddingLeft: 2000, marginLeft: -2000, marginRight: -2000, paddingRight: 2000}} style={prism} showLineNumbers>
+                    {'<Collapse defaultPanel="2" onChange={key => console.log(key)}>\r\n  <Panel header="title 1" key="1">\r\n    <p>{text1}</p>\r\n  </Panel>\r\n  <Panel header="title 2" key="2">\r\n    <p>{text2}</p>\r\n  </Panel>\r\n  <Panel header="title 3" key="3">\r\n    <p>{text3}</p>\r\n  </Panel>\r\n</Collapse>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// defaultPanel默认打开的面板 onChange获取当前被点击的面板的key header面板标题 key面板索引'}
                   </Highlight>
                 </div>
       break
@@ -209,7 +232,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={8} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={9} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
     </div>
   );

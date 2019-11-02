@@ -1,0 +1,39 @@
+.C-container {
+    width: 400px;
+    margin: 10px auto;
+    text-align: start;
+    border: 1px solid #dadada;
+    border-bottom: 0;
+    border-radius: 4px;
+}
+
+
+.C-title {
+    padding: 10px 20px;
+    margin: 0;
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.C-title .fa {
+    margin: 0 10px 0 0;
+}
+
+.C-item {
+    border-bottom: 1px solid #dadada;
+}
+
+
+
+
+.C-content {
+    border-top: 1px solid #dadada;
+    overflow: hidden;
+    padding: 0 20px;
+    height: 150px;
+    transition: .3s;
+}
+
+.C-content-collapse {
+    height: 0px;
+}
