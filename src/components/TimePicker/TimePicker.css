@@ -1,0 +1,89 @@
+.TP-container {
+    position: relative;
+    width: 180px;
+    margin: 10px auto;
+}
+
+.TP-input {
+    height: 30px;
+    width: 90px;
+    display: block;
+    outline: none;
+    padding-left: 10px;
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+}
+
+
+.TP-selector-container {
+    position: absolute;
+    width: 180px;
+    box-shadow: 0 0 15px #d9d9d9;
+    top: 0;
+    left: 0;
+}
+
+
+
+.TP-selector-mask {
+    /* 覆盖整个视口 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.TP-selector-inputbox {
+    position: relative;
+    z-index: 1;
+}
+
+.TP-selector-input {
+    border-radius: 4px 4px 0 0 ;
+    border: 2px solid #d9d9d9;
+    padding-left: 10px;
+    outline: none;
+    height: 30px;
+    width: 166px;
+}
+
+.TP-selector-scrollbox {
+    display: flex;
+    border: 2px solid #d9d9d9;
+    border-top: none;
+}
+
+.TP-selector-scroll {
+    flex: 1;
+    height: 180px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.TP-selector-scroll:hover {
+    overflow-y: scroll;
+}
+
+
+.TP-selector-block {
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    padding-right: 30px;
+    margin-right: -30px;
+    cursor: pointer;
+}
+
+.TP-selector-block:last-child {
+    margin-bottom: 150px;
+}
+
+.TP-selector-block:hover {
+    background-color: #e6f7ff;
+}
+
+.TP-selected {
+    background-color: #f5f5f5;
+    font-weight: bolder;
+}

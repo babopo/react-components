@@ -30,6 +30,8 @@ import InputNumber from './components/InputNumber/InputNumber'
 import Collapse, {Panel} from './components/Collapse/Collapse'
 // 多选框
 import CheckBox from './components/CheckBox/CheckBox'
+// 时间选择框
+import TimePicker from './components/TimePicker/TimePicker'
 
 // 树形控件数据
 const treeData = [
@@ -110,7 +112,7 @@ function App() {
                     {'<DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
-                    {'// size传入区域大小 action传入上传地址'}
+                    {'// size限制传入文件的大小 action上传地址'}
                   </Highlight>
                   {/* <DatePicker /> */}
                 </div>
@@ -235,7 +237,19 @@ function App() {
                     {"<CheckBox group={['Apple', 'Peach', 'Orange', 'Milk']} defaultChecked={['Apple', 'Orange']} onChange={checked => console.log(checked)}/>"}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
-                    {'// group所有选项名称的数组 defaultChecked默认选中的项 onChage获取最新的被选中项组成的数组'}
+                    {'// group所有选项名称的数组 defaultChecked默认选中的项 onChange获取最新的被选中项组成的数组'}
+                  </Highlight>
+                </div>
+      break
+    case 11:
+      showing = <div>
+                  <h1 className="App-title">时间选择框</h1>
+                  <TimePicker defaultTime="11:12:36" onChange={time => console.log(time)}/>
+                  <Highlight language="jsx" style={prism}>
+                    {'<TimePicker defaultTime="11:12:36" onChange={time => console.log(time)}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// 为方便展示,传入和获取的时间都是"HH:mm:ss"格式的字符串而不是时间对象 defaultTime默认显示的时间 onChange获取最新的被选择时间'}
                   </Highlight>
                 </div>
       break
@@ -246,7 +260,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={10} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={11} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
     </div>
   );
