@@ -72,7 +72,7 @@ function TimePicker(props) {
     }
 
     function retrive() {
-        if(time.some((it, idx) => {
+        if(time.length !== 3 || time.some((it, idx) => {
             if(Number.isNaN(+it) || +it < 0) {
                 return true
             }

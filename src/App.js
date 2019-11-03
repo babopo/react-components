@@ -253,6 +253,18 @@ function App() {
                   </Highlight>
                 </div>
       break
+    case 12:
+      showing = <div>
+                  <h1 className="App-title">日期选择框</h1>
+                  <DatePicker onChange={time => console.log(time)}/>
+                  {/* <Highlight language="jsx" style={prism}>
+                    {'<TimePicker defaultTime="11:12:36" onChange={time => console.log(time)}/>'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// 为方便展示,传入和获取的时间都是"HH:mm:ss"格式的字符串而不是时间对象 defaultTime默认显示的时间 onChange获取最新的被选择时间'}
+                  </Highlight> */}
+                </div>
+      break
     default:    
   }
 
@@ -260,7 +272,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={11} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={12} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
     </div>
   );

@@ -73,7 +73,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [x] 分页
 - [ ] 树形控件
 - [x] 无限滚动虚拟列表
-- [ ] 日期选择
 - [ ] 拖拽菜单
 - [x] 开关
 - [x] 滑动输入条
@@ -82,3 +81,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - [x] 折叠面板
 - [x] 多选框
 - [x] 时间选择框
+- [ ] 日期选择框
