@@ -34,13 +34,13 @@ function Carousel(props) {
                     setCurr(0)
                     props.onChange(0)
                 }
-            }, 1500)
+            }, 1300)
         }
     }) 
     return(
         <div className="Csel-container">
             <div className = "Csel-body">
-                {props.children.map((it, idx) => <div style={{marginLeft: 300 * (idx - curr)}} className="Csel-item">{it}</div>)}
+                {props.children.map((it, idx) => <div style={{marginLeft: 300 * (idx - curr)}} key={idx} className="Csel-item">{it}</div>)}
             </div>
             <div className = "Csel-btns">{btns}</div>
         </div>

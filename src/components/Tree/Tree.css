@@ -3,12 +3,14 @@
     margin: auto;
     list-style: none;
     text-align: left;
+    transition: .3s;
+    overflow: hidden;
 }
 
 .T-item {
     margin: 5px;
     position: relative;
-    padding-left: 23px;
+    padding-left: 15px;
 }
 
 .T-checkbox {
@@ -17,17 +19,9 @@
     line-height: 15px;
     width: 15px;
     height: 15px;
-    border: 1px solid;
+    cursor: pointer;
 }
 
-.T-checkbox > .fa-check {
-    display: none;
-}
-
-input:checked + .T-checkbox {
-
-}
-
-input:checked + .T-checkbox > .fa-check {
-    display: inline;
+.T-text:hover {
+    background-color: #e6f7ff;
 }

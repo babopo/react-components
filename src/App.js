@@ -13,7 +13,7 @@ import DragUpload from './components/DragUpload/DragUpload'
 // 分页
 import Pagination from './components/Pagination/Pagination'
 // 树形控件
-import Tree from './components/Tree/Tree'
+import Tree, {TreeNode} from './components/Tree/Tree'
 // 虚拟长列表
 import InfiniteScroll from './components/InfiniteScroll/InfiniteScroll'
 // 开关
@@ -78,6 +78,17 @@ const treeData = [
   },
 ]
 
+function dataToTreeNode(data) {
+  return data.map((it => {
+    if(it.children) {
+      return (
+        <TreeNode title={it.title} key={it.key} >
+          {dataToTreeNode(it.children)}
+        </TreeNode>)
+    }
+    return <TreeNode title={it.title} key={it.key} />
+  }))
+}
 
 
 
@@ -124,7 +135,18 @@ function App() {
     case 3:
       showing = <div>
                   <h1 className="App-title">树形控件</h1>
-                  <Tree data={treeData} defaultSelected={[]} defaultChecked={[]} onChange={keys => console.log(keys)}/>
+                  <Tree>
+                    {dataToTreeNode(treeData)}
+                  </Tree>
+                  <Highlight language="jsx" style={prism}>
+                    {"<Tree>{dataToTreeNode(treeData)}</Tree>"}
+                  </Highlight>
+                  <Highlight className="App-snippts" language="javascript" customStyle={{textAlign: "start", display: 'inline-block', paddingLeft: 2000, marginLeft: -2000, marginRight: -2000, paddingRight: 2000}} style={prism} showLineNumbers>
+                    {"//传入数据\r\nconst treeData = [\r\n  {\r\n    title: '0-0',\r\n    key: '0-0',\r\n    children: [\r\n      {\r\n        title: '0-0-0',\r\n        key: '0-0-0',\r\n        children: [\r\n          { title: '0-0-0-0', key: '0-0-0-0' },\r\n          { title: '0-0-0-1', key: '0-0-0-1' },\r\n          { title: '0-0-0-2', key: '0-0-0-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-1',\r\n        key: '0-0-1',\r\n        children: [\r\n          { title: '0-0-1-0', key: '0-0-1-0' },\r\n          { title: '0-0-1-1', key: '0-0-1-1' },\r\n          { title: '0-0-1-2', key: '0-0-1-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-2',\r\n        key: '0-0-2',\r\n      },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-1',\r\n    key: '0-1',\r\n    children: [\r\n      { title: '0-1-0-0', key: '0-1-0-0' },\r\n      { title: '0-1-0-1', key: '0-1-0-1' },\r\n      { title: '0-1-0-2', key: '0-1-0-2' },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-2',\r\n    key: '0-2',\r\n  },\r\n]\r\n\r\nfunction dataToTreeNode(data) {\r\n  return data.map((it => {\r\n    if(it.children) {\r\n      return (\r\n        <TreeNode title={it.title} key={it.key} >\r\n          {dataToTreeNode(it.children)}\r\n        </TreeNode>)\r\n    }\r\n    return <TreeNode title={it.title} key={it.key} />\r\n  }))\r\n}"}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// 只实现了基本的展开收起功能，所以只能算一个列表 checkbox及获取当前被check的选项功能比较麻烦 待实现'}
+                  </Highlight>
                 </div>
       break
     case 4:
@@ -273,7 +295,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={12} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={1} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
     </div>
   );
