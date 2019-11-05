@@ -106,12 +106,14 @@ function App() {
       showing = <div>
                   <h1 className="App-title">拖拽上传</h1>
                   <DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>
-                  <label>将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击圆圈重置</label>
                   <Highlight language="jsx" style={prism}>
                     {'<DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
-                    {'// size限制传入文件的大小 action上传地址'}
+                    {'// 将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击圆圈重置'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// size限制传入文件的大小 action为上传地址 示例中为可用的测试地址'}
                   </Highlight>
                   {/* <DatePicker /> */}
                 </div>
@@ -198,7 +200,7 @@ function App() {
                   <Rate count={5} defaultValue={2.6} onValue={val => console.log(val)}/>
                   <div className="App-placholder"></div>
                   <Highlight language="jsx" style={prism}>
-                    {'<Rate count={5} defaultValue={2.5} onValue={val => console.log(val)}/>'}
+                    {'<Rate count={5} defaultValue={2.6} onValue={val => console.log(val)}/>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
                     {'// count传入最大评分数(整数)，1分对应1颗星 defaultValue传入初始值 onValue绑定处理机获取新值 精确到小数点后1位'}
