@@ -13,11 +13,9 @@ import DragUpload from './components/DragUpload/DragUpload'
 // 分页
 import Pagination from './components/Pagination/Pagination'
 // 树形控件
-import Tree, {TreeNode} from './components/Tree/Tree'
+import Tree from './components/Tree/Tree'
 // 虚拟长列表
 import InfiniteScroll from './components/InfiniteScroll/InfiniteScroll'
-// 日期选择器
-import DatePicker from './components/DatePicker/DatePicker'
 // 开关
 import Switch from './components/Switch/Switch'
 // 滑动输入
@@ -32,6 +30,8 @@ import Collapse, {Panel} from './components/Collapse/Collapse'
 import CheckBox from './components/CheckBox/CheckBox'
 // 时间选择框
 import TimePicker from './components/TimePicker/TimePicker'
+// 走马灯
+import Carousel from './components/Carousel/Carousel'
 
 // 树形控件数据
 const treeData = [
@@ -77,21 +77,9 @@ const treeData = [
     key: '0-2',
   },
 ]
-function dataToTreeNode(data) {
-  return data.map(it => {
-    if(it.children) {
-      return <TreeNode key={it.key} title={it.title}>{dataToTreeNode(it.children)}</TreeNode>
-    }
-    return <TreeNode {...it} />
-  })
-}
-function TreeComponent() {
-  return (
-    <Tree>
-      {dataToTreeNode(treeData)}
-    </Tree>
-  ) 
-}
+
+
+
 
 const InfiniteList = [...Object.keys(Array(30).fill(0))]
 
@@ -136,7 +124,7 @@ function App() {
     case 3:
       showing = <div>
                   <h1 className="App-title">树形控件</h1>
-                  <TreeComponent />
+                  <Tree data={treeData} defaultSelected={[]} defaultChecked={[]} onChange={keys => console.log(keys)}/>
                 </div>
       break
     case 4:
@@ -255,14 +243,27 @@ function App() {
       break
     case 12:
       showing = <div>
-                  <h1 className="App-title">日期选择框</h1>
-                  <DatePicker onChange={time => console.log(time)}/>
-                  {/* <Highlight language="jsx" style={prism}>
-                    {'<TimePicker defaultTime="11:12:36" onChange={time => console.log(time)}/>'}
+                  <h1 className="App-title">走马灯</h1>
+                  <Carousel autoplay onChange={currPage => console.log(currPage)}>
+                    <div>
+                      <h3>1</h3>
+                    </div>
+                    <div>
+                      <h3>2</h3>
+                    </div>
+                    <div>
+                      <h3>3</h3>
+                    </div>
+                    <div>
+                      <h3>4</h3>
+                    </div>
+                  </Carousel>
+                  <Highlight className="App-snippts" language="jsx" customStyle={{textAlign: "start", display: 'inline-block', paddingLeft: 2000, marginLeft: -2000, marginRight: -2000, paddingRight: 2000}} style={prism} showLineNumbers>
+                    {'<Carousel autoplay onChange={currPage => console.log(currPage)}>\r\n  <div>\r\n    <h3>1</h3>\r\n  </div>\r\n  <div>\r\n    <h3>2</h3>\r\n  </div>\r\n  <div>\r\n    <h3>3</h3>\r\n  </div>\r\n  <div>\r\n    <h3>4</h3>\r\n  </div>\r\n</Collapse>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
-                    {'// 为方便展示,传入和获取的时间都是"HH:mm:ss"格式的字符串而不是时间对象 defaultTime默认显示的时间 onChange获取最新的被选择时间'}
-                  </Highlight> */}
+                    {'// 设置autoplay属性开启自动轮播，点击任意页面按钮自动关闭自动轮播 onChange获取当前页面的下标'}
+                  </Highlight>
                 </div>
       break
     default:    

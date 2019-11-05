@@ -1,0 +1,45 @@
+.Csel-container {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 10px auto;
+    color: white;
+    background-color: #364d79;
+    overflow: hidden;
+}
+
+.Csel-item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    transition: .3s;
+}
+
+.Csel-btns {
+    z-index: 5;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Csel-btns-btn {
+    display: inline-block;
+    margin: 2px;
+    width: 15px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: .3s
+}
+
+.Csel-btns-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.Csel-btns-selected {
+    width: 25px;
+    background-color: #fff;
+}
