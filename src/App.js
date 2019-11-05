@@ -296,7 +296,7 @@ function App() {
       {showing}
       <div className="App-bottom"></div>
       <Pagination total={12} pageSize={1} defaultCurrent={1} onChange={switchPage} />
-      <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /></a>
+      <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /> </a>
     </div>
   );
 }
