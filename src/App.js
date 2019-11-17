@@ -105,9 +105,9 @@ function App() {
     case 1: 
       showing = <div>
                   <h1 className="App-title">拖拽上传</h1>
-                  <DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>
+                  <DragUpload size={2000 * 2000} action="https://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>
                   <Highlight language="jsx" style={prism}>
-                    {'<DragUpload size={2000 * 2000} action="http://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
+                    {'<DragUpload size={2000 * 2000} action="https://www.mocky.io/v2/5db65efc2f000058007fe7ed"/>'}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
                     {'// 将文件拖拽至圆圈中自动上传，上传动画反映上传进度，上传完成后点击圆圈重置'}
@@ -115,7 +115,6 @@ function App() {
                   <Highlight language="javascript" style={prism}>
                     {'// size限制传入文件的大小 action为上传地址 示例中为可用的测试地址'}
                   </Highlight>
-                  {/* <DatePicker /> */}
                 </div>
       break
     case 2:
@@ -137,7 +136,7 @@ function App() {
     case 3:
       showing = <div>
                   <h1 className="App-title">树形控件</h1>
-                  <Tree>
+                  <Tree onChange={val => console.log(val)}>
                     {dataToTreeNode(treeData)}
                   </Tree>
                   <Highlight language="jsx" style={prism}>
@@ -147,7 +146,7 @@ function App() {
                     {"//传入数据\r\nconst treeData = [\r\n  {\r\n    title: '0-0',\r\n    key: '0-0',\r\n    children: [\r\n      {\r\n        title: '0-0-0',\r\n        key: '0-0-0',\r\n        children: [\r\n          { title: '0-0-0-0', key: '0-0-0-0' },\r\n          { title: '0-0-0-1', key: '0-0-0-1' },\r\n          { title: '0-0-0-2', key: '0-0-0-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-1',\r\n        key: '0-0-1',\r\n        children: [\r\n          { title: '0-0-1-0', key: '0-0-1-0' },\r\n          { title: '0-0-1-1', key: '0-0-1-1' },\r\n          { title: '0-0-1-2', key: '0-0-1-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-2',\r\n        key: '0-0-2',\r\n      },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-1',\r\n    key: '0-1',\r\n    children: [\r\n      { title: '0-1-0-0', key: '0-1-0-0' },\r\n      { title: '0-1-0-1', key: '0-1-0-1' },\r\n      { title: '0-1-0-2', key: '0-1-0-2' },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-2',\r\n    key: '0-2',\r\n  },\r\n]\r\n\r\nfunction dataToTreeNode(data) {\r\n  return data.map((it => {\r\n    if(it.children) {\r\n      return (\r\n        <TreeNode title={it.title} key={it.key} >\r\n          {dataToTreeNode(it.children)}\r\n        </TreeNode>)\r\n    }\r\n    return <TreeNode title={it.title} key={it.key} />\r\n  }))\r\n}"}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
-                    {'// 只实现了基本的展开收起功能，所以只能算一个列表 checkbox及获取当前被check的选项功能比较麻烦 待实现'}
+                    {'// 递归处理，点击父元素向当于所有子孙元素单独被点击 待优化'}
                   </Highlight>
                 </div>
       break
@@ -297,7 +296,7 @@ function App() {
     <div className="App">
       {showing}
       <div className="App-bottom"></div>
-      <Pagination total={12} pageSize={1} defaultCurrent={1} onChange={switchPage} />
+      <Pagination total={12} pageSize={1} defaultCurrent={3} onChange={switchPage} />
       <a href="https://github.com/babopo/react-components" target="_blank" className="App-github"><i className="fa fa-github" aria-hidden="true" /> </a>
     </div>
   );
