@@ -136,17 +136,20 @@ function App() {
     case 3:
       showing = <div>
                   <h1 className="App-title">树形控件</h1>
-                  <Tree onChange={val => console.log(val)}>
+                  <Tree defaultCheckedKeys={['0-0-0-0', '0-1']} onChange={val => console.log(val)}>
                     {dataToTreeNode(treeData)}
                   </Tree>
                   <Highlight language="jsx" style={prism}>
-                    {"<Tree onChange={val => console.log(val)}>{dataToTreeNode(treeData)}</Tree>"}
+                    {"<Tree defaultCheckedKeys={['0-0-0-0', '0-1']} onChange={val => console.log(val)}>{dataToTreeNode(treeData)}</Tree>"}
                   </Highlight>
                   <Highlight className="App-snippts" language="javascript" customStyle={{textAlign: "start", display: 'inline-block', paddingLeft: 2000, marginLeft: -2000, marginRight: -2000, paddingRight: 2000}} style={prism} showLineNumbers>
                     {"//传入数据\r\nconst treeData = [\r\n  {\r\n    title: '0-0',\r\n    key: '0-0',\r\n    children: [\r\n      {\r\n        title: '0-0-0',\r\n        key: '0-0-0',\r\n        children: [\r\n          { title: '0-0-0-0', key: '0-0-0-0' },\r\n          { title: '0-0-0-1', key: '0-0-0-1' },\r\n          { title: '0-0-0-2', key: '0-0-0-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-1',\r\n        key: '0-0-1',\r\n        children: [\r\n          { title: '0-0-1-0', key: '0-0-1-0' },\r\n          { title: '0-0-1-1', key: '0-0-1-1' },\r\n          { title: '0-0-1-2', key: '0-0-1-2' },\r\n        ],\r\n      },\r\n      {\r\n        title: '0-0-2',\r\n        key: '0-0-2',\r\n      },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-1',\r\n    key: '0-1',\r\n    children: [\r\n      { title: '0-1-0-0', key: '0-1-0-0' },\r\n      { title: '0-1-0-1', key: '0-1-0-1' },\r\n      { title: '0-1-0-2', key: '0-1-0-2' },\r\n    ],\r\n  },\r\n  {\r\n    title: '0-2',\r\n    key: '0-2',\r\n  },\r\n]\r\n\r\nfunction dataToTreeNode(data) {\r\n  return data.map((it => {\r\n    if(it.children) {\r\n      return (\r\n        <TreeNode title={it.title} key={it.key} >\r\n          {dataToTreeNode(it.children)}\r\n        </TreeNode>)\r\n    }\r\n    return <TreeNode title={it.title} key={it.key} />\r\n  }))\r\n}"}
                   </Highlight>
                   <Highlight language="javascript" style={prism}>
                     {'// 递归处理，点击父元素向当于所有子孙元素单独被点击 待优化'}
+                  </Highlight>
+                  <Highlight language="javascript" style={prism}>
+                    {'// defaultCheckedKeys为默认被选中的元素 数据生成嵌套的TreeNode后作为Tree的子元素传入'}
                   </Highlight>
                 </div>
       break

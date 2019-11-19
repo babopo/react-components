@@ -7,12 +7,13 @@ import './Tree.css'
 
 /**
  * props说明
+ * defaultCheckedKeys 默认被check的元素
  * children 为转换好的TreeNode元素
  * onChange 获取当前被checke的元素
  */
 function Tree(props) {
     // 存储当前被选中的项组成的数组，往下传递
-    const [checkedValue, setChecked] = useState([])
+    const [checkedValue, setChecked] = useState(props.defaultCheckedKeys)
     function toggle(key) {
         // 根据反馈上来的key做对应的处理
         if(checkedValue.includes(key)) {
